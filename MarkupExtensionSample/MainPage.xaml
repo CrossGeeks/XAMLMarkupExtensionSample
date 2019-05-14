@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MarkupExtensionSample.MainPage" 
+             xmlns:extension="clr-namespace:MarkupExtensionSample.Extensions">
+    
+    <StackLayout VerticalOptions="CenterAndExpand"
+                 Padding="20">
+        
+        <!--OnPlatform extension-->
+        <Button HorizontalOptions="FillAndExpand"
+                TextColor="White"
+                Text="Click me Monkey!"
+                BackgroundColor="{OnPlatform Black, iOS=Red, Android=Green, UWP=Blue}"/>
+        
+        <!--OnIdiom extension-->
+         <Button HorizontalOptions="FillAndExpand"
+                TextColor="White"
+                Text="Click me Monkey!"
+                BackgroundColor="{OnIdiom Black, Phone=Red, Tablet=Green, Desktop=Blue}"/>
+        
+        <!-- New markup extension -->
+        <Button HeightRequest="100"
+                Padding="0" 
+                x:Name="myButton"
+                Text="Click me!"
+                BackgroundColor="Red"
+                HorizontalOptions="FillAndExpand"
+                TextColor="White">
+            <Button.FontSize>
+                <extension:FontSizeExtension Button="{x:Reference myButton}" />
+            </Button.FontSize>  
+        </Button>
+    </StackLayout>
+</ContentPage>
