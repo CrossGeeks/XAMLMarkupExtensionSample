@@ -1,1 +1,1 @@
-# XAMLMarkupExtensionSample
+# XAML Markup Extension Sample
